@@ -489,7 +489,7 @@ import (
 )
 
 func main() {{
-	id := core.CreateClient(cross, core.MsgCreateClient{{
+	id := core.CreateClient(cross(cur), core.MsgCreateClient{{
     	ClientType: "{}",
     	ClientStateBytes: {},
     	ConsensusStateBytes: {},
@@ -514,7 +514,7 @@ import (
 )
 
 func main() {{
-	height := core.UpdateClient(cross, core.MsgUpdateClient{{
+	height := core.UpdateClient(cross(cur), core.MsgUpdateClient{{
     	ClientId: core.ClientId({}),
     	ClientMessage: {},
     	// Relayer: {},
@@ -537,7 +537,7 @@ import (
 )
 
 func main() {{
-	height := core.ConnectionOpenInit(cross, core.MsgConnectionOpenInit{{
+	height := core.ConnectionOpenInit(cross(cur), core.MsgConnectionOpenInit{{
     	ClientId: core.ClientId({}),
     	CounterpartyClientId: core.ClientId({}),
 	}})
@@ -557,7 +557,7 @@ import (
 )
 
 func main() {{
-	core.ConnectionOpenTry(cross, core.MsgConnectionOpenTry{{
+	core.ConnectionOpenTry(cross(cur), core.MsgConnectionOpenTry{{
     	ClientId: core.ClientId({}),
     	CounterpartyClientId: core.ClientId({}),
     	CounterpartyConnectionId: core.ConnectionId({}),
@@ -583,7 +583,7 @@ import (
 )
 
 func main() {{
-	core.ConnectionOpenAck(cross, core.MsgConnectionOpenAck{{
+	core.ConnectionOpenAck(cross(cur), core.MsgConnectionOpenAck{{
     	ConnectionId: core.ConnectionId({}),
     	CounterpartyConnectionId: core.ConnectionId({}),
     	ProofTry: {},
@@ -607,7 +607,7 @@ import (
 )
 
 func main() {{
-	core.ConnectionOpenConfirm(cross, core.MsgConnectionOpenConfirm{{
+	core.ConnectionOpenConfirm(cross(cur), core.MsgConnectionOpenConfirm{{
     	ConnectionId: core.ConnectionId({}),
     	ProofAck: {},
     	ProofHeight: core.Height({}),
@@ -629,7 +629,7 @@ import (
 )
 
 func main() {{
-	core.ChannelOpenInit(cross, core.MsgChannelOpenInit{{
+	core.ChannelOpenInit(cross(cur), core.MsgChannelOpenInit{{
     	PortId: {},
     	CounterpartyPortId: {},
     	ConnectionId: {},
@@ -653,7 +653,7 @@ import (
 )
 
 func main() {{
-	core.ChannelOpenTry(cross, core.MsgChannelOpenTry{{
+	core.ChannelOpenTry(cross(cur), core.MsgChannelOpenTry{{
     	PortId: {},
     	Channel: core.Channel{{
         	State: {},
@@ -691,7 +691,7 @@ import (
 )
 
 func main() {{
-	core.ChannelOpenAck(cross, core.MsgChannelOpenAck{{
+	core.ChannelOpenAck(cross(cur), core.MsgChannelOpenAck{{
     	ChannelId: core.ChannelId({}),
     	CounterpartyVersion: "{}",
     	CounterpartyChannelId: core.ChannelId({}),
@@ -717,7 +717,7 @@ import (
 )
 
 func main() {{
-	core.ChannelOpenConfirm(cross, core.MsgChannelOpenConfirm{{
+	core.ChannelOpenConfirm(cross(cur), core.MsgChannelOpenConfirm{{
     	ChannelId: core.ChannelId({}),
     	ProofAck: {},
     	ProofHeight: {},
@@ -741,7 +741,7 @@ import (
 )
 
 func main() {{
-	core.PacketRecv(cross, core.MsgPacketRecv{{
+	core.PacketRecv(cross(cur), core.MsgPacketRecv{{
     	Packets: []core.Packet{{ {} }},
     	RelayerMsgs: [][]byte{{ {} }},
     	Proof: {},
@@ -773,7 +773,7 @@ import (
 )
 
 func main() {{
-	core.PacketAcknowledgement(cross, core.MsgPacketAcknowledgement{{
+	core.PacketAcknowledgement(cross(cur), core.MsgPacketAcknowledgement{{
     	Packets: []core.Packet{{ {} }},
     	Acknowledgements: [][]byte{{ {} }},
     	Proof: {},
@@ -805,7 +805,7 @@ import (
 )
 
 func main() {{
-	core.PacketTimeout(cross, core.MsgPacketTimeout{{
+	core.PacketTimeout(cross(cur), core.MsgPacketTimeout{{
     	Packet: core.Packet{{
         	SourceChannelId: core.ChannelId({}),
         	DestinationChannelId: core.ChannelId({}),
